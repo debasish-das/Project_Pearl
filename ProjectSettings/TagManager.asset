@@ -12,9 +12,9 @@ TagManager:
   - 
   - Water
   - UI
-  - Ground
-  - WallTerrain
   - 
+  - Terrain
+  - Background
   - 
   - 
   - 
@@ -47,7 +47,4 @@ TagManager:
     locked: 0
   - name: Terrain
     uniqueID: 1053637725
-    locked: 0
-  - name: WallTerrain
-    uniqueID: 2078621081
     locked: 0

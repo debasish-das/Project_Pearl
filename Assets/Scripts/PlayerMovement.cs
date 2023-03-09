@@ -15,7 +15,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private float jumpForce = 18f;
     [SerializeField]
-    private float velocityX = 7f;
+    private float velocityX = 8f;
 
     private enum MovementState { idle = 0, running = 1, jumping = 2, falling = 3 };
 
@@ -31,7 +31,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        float dirX = Input.GetAxisRaw("Horizontal");
+        float dirX = Input.GetAxis("Horizontal");
         _playerBody.velocity = new Vector2(dirX * velocityX, _playerBody.velocity.y);
 
 
