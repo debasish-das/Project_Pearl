@@ -156,8 +156,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   _jumpAudio: {fileID: 7922887368324851457}
-  jumpForce: 18
-  velocityX: 7
+  jumpForce: 20
+  velocityX: 9
 --- !u!95 &7922887368324851460
 Animator:
   serializedVersion: 4
