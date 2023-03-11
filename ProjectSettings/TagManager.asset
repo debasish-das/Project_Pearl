@@ -44,9 +44,15 @@ TagManager:
   - name: Background
     uniqueID: 3161220713
     locked: 0
+  - name: BackwardLayer
+    uniqueID: 4033452061
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
   - name: Terrain
     uniqueID: 1053637725
+    locked: 0
+  - name: ForwardLayer
+    uniqueID: 3512120561
     locked: 0
