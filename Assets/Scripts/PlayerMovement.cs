@@ -13,6 +13,9 @@ public class PlayerMovement : MonoBehaviour
     private LayerMask _jumpableGround;
 
     [SerializeField]
+    private AudioSource _jumpAudio;
+
+    [SerializeField]
     private float jumpForce = 18f;
     [SerializeField]
     private float velocityX = 8f;
@@ -37,6 +40,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetButtonDown("Jump") && IsGrounded())
         {
+            _jumpAudio.Play();
             _playerBody.velocity = new Vector2(_playerBody.velocity.x, jumpForce);
         }
 
@@ -71,6 +75,7 @@ public class PlayerMovement : MonoBehaviour
             state = MovementState.falling;
         }
 
+        //Debug.Log(_playerBody.velocity.y);
 
         _animator.SetInteger("_movementState", (int)state);
     }
