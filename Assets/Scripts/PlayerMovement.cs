@@ -15,9 +15,9 @@ public class PlayerMovement : MonoBehaviour
     private AudioSource _jumpAudio;
 
     [SerializeField]
-    private float jumpForce = 18f;
+    private float jumpForce = 20f;
     [SerializeField]
-    private float velocityX = 8f;
+    private float velocityX = 9f;
 
     private enum MovementState { idle = 0, running = 1, jumping = 2, falling = 3 };
 
