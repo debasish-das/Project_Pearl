@@ -4,9 +4,13 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Cherry
   - Trap
   - Pearl
+  - CP
+  - Cherry
+  - Orange
+  - Banana
+  - Strawberry
   layers:
   - Default
   - TransparentFX

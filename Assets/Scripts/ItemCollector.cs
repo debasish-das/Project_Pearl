@@ -14,12 +14,18 @@ public class ItemCollector : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.CompareTag("Pearl"))
+        var collider = collision.gameObject;
+        if(collider.CompareTag("Pearl"))
         {
             _collectAudio.Play();
             Destroy(collision.gameObject);
             pearlCount++;
             pearlText.text = "PEARL# " + pearlCount;
+        }
+        else if (collider.CompareTag("CP"))
+        {
+            collision.gameObject.GetComponent<Animator>().SetInteger("state", 1);
+            collision.gameObject.tag = "Untagged";
         }
     }
 }
