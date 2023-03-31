@@ -7,6 +7,9 @@ public class ItemCollector : MonoBehaviour
     private int pearlCount = 0;
 
     [SerializeField]
+    private int totalPearl;
+
+    [SerializeField]
     private Text pearlText;
 
     [SerializeField]
@@ -20,7 +23,7 @@ public class ItemCollector : MonoBehaviour
             _collectAudio.Play();
             Destroy(collision.gameObject);
             pearlCount++;
-            pearlText.text = "PEARL# " + pearlCount;
+            pearlText.text = pearlCount + "/" + totalPearl;
         }
         else if (collider.CompareTag("CP"))
         {
