@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8321325833360280243
 RectTransform:
   m_ObjectHideFlags: 0
@@ -303,6 +303,7 @@ GameObject:
   - component: {fileID: 1146692499568693230}
   - component: {fileID: 808088392248144394}
   - component: {fileID: 6044693873753573532}
+  - component: {fileID: 4813448259315213818}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -371,8 +372,20 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Collect all the pearls.Then the Roboman can make a Portal for you.
+  m_Text: 'Collect ${} the pearls.Then the Roboman can make a Portal for you.
 
 
     20
     fruits is needed to enable Double Jump (more fruits more stamina).'
+--- !u!114 &4813448259315213818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4286383814301809350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e64bc8a0e644de42a5404bd32e2d186, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

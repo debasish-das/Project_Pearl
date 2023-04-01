@@ -19,8 +19,16 @@ public class PortalCreator : MonoBehaviour
     {
         if (collision.gameObject.name == "Player")
         {
-            portal.gameObject.SetActive(true);
-            helpPanel.gameObject.SetActive(true);
+            var itemCollector = collision.gameObject.GetComponent<ItemCollector>();
+
+            if (itemCollector.CollectedPearls() == itemCollector.GetNumberOfPearls())
+            {
+                portal.gameObject.SetActive(true);
+            }
+            else
+            {
+                helpPanel.gameObject.SetActive(true);
+            }
         }
     }
 }

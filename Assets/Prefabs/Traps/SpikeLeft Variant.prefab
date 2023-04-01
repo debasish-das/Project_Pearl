@@ -51,9 +51,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 1195833485419777958, guid: 3c02035f63175d64d9ba3761bdb3a717, type: 3}
+      propertyPath: m_Size.y
+      value: 0.4881047
+      objectReference: {fileID: 0}
+    - target: {fileID: 1195833485419777958, guid: 3c02035f63175d64d9ba3761bdb3a717, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.25594765
+      objectReference: {fileID: 0}
     - target: {fileID: 1195833485419777959, guid: 3c02035f63175d64d9ba3761bdb3a717, type: 3}
       propertyPath: m_Name
-      value: SpikeLeft
+      value: SpikeLeft Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c02035f63175d64d9ba3761bdb3a717, type: 3}

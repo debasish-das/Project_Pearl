@@ -191,6 +191,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pearlText: {fileID: 1616800093661956132, guid: a294a3f07f55c7a4b9c104b16cff03bc, type: 3}
+  numberOfPearls: 10
   _collectAudio: {fileID: 7922887368324851459}
 --- !u!114 &7922887368324851462
 MonoBehaviour:
