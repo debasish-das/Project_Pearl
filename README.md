@@ -4,4 +4,4 @@ Game Name: Casted Away<br>
 Genre: Jump and Run, Adventure<br>
 Platform: Unity<br>
 Author: Debasish Das<br>
-&copy; 2023, Debaish Das, all rights reserved.
+&copy; 2023, Debaish Das
