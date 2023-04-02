@@ -19,7 +19,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private float velocityX = 9f;
 
-    private enum MovementState { idle = 0, running = 1, jumping = 2, falling = 3 };
+    private enum MovementState { idle = 0, running = 1, jumping = 2, falling = 3, death = 4 };
 
     // Start is called before the first frame update
     private void Start()

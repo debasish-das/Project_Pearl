@@ -26,12 +26,6 @@ public class FinishController : MonoBehaviour
     private void CompleteLevel()
     {
         int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
-
-        //Debug.Log(nextSceneIndex);
-
-        //if (nextSceneIndex < SceneManager.sceneCount)
-        //{
         SceneManager.LoadScene(nextSceneIndex);
-        //}
     }
 }

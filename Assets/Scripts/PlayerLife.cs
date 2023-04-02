@@ -4,22 +4,24 @@ using UnityEngine.SceneManagement;
 
 public class PlayerLife : MonoBehaviour
 {
-    private Animator _animator;
-    private Rigidbody2D _rigidBody2d;
+    private Animator animator;
+    private Rigidbody2D rigidBody2d;
 
     [SerializeField] 
-    private AudioSource _deathAudio;
+    private AudioSource deathAudio;
 
+    [SerializeField]
+    private Transform checkPoint;
 
     private void Start()
     {
-        _animator = GetComponent<Animator>();
-        _rigidBody2d = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
+        rigidBody2d = GetComponent<Rigidbody2D>();
     }
 
     private void Update()
     {
-        if (_rigidBody2d.velocity.y < -70)
+        if (rigidBody2d.velocity.y < -70)
         {
             Die();
         }
@@ -33,15 +35,35 @@ public class PlayerLife : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("CP"))
+        {
+            collision.gameObject.GetComponent<Animator>().SetInteger("state", 1);
+            collision.gameObject.tag = "Untagged";
+            checkPoint = collision.gameObject.GetComponent<Transform>();
+        }
+    }
+
     private void Die()
     {
-        _deathAudio.Play();
-        _animator.SetTrigger("deathTrigger");
-        _rigidBody2d.bodyType = RigidbodyType2D.Static;
+        deathAudio.Play();
+        animator.SetTrigger("deathTrigger");
+        rigidBody2d.bodyType = RigidbodyType2D.Static;
+        Invoke("RestartLevel", 1.5f);
     }
 
     private void RestartLevel()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        if (checkPoint != null)
+        {
+            transform.position = checkPoint.position;
+            animator.SetInteger("_movementState", 10);
+            rigidBody2d.bodyType = RigidbodyType2D.Dynamic;
+        }
+        else
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
     }
 }

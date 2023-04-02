@@ -56,41 +56,42 @@ public class ItemCollector : MonoBehaviour
         return collectedStrawberry;
     }
 
+    public void Start()
+    {
+        berryText.text = collectedStrawberry.ToString();
+        cherryText.text = collectedCherry.ToString();
+        orangeText.text = collectedOrange.ToString();
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         var collider = collision.gameObject;
-        Debug.Log(collider.tag);
         if(collider.CompareTag("Pearl"))
         {
             collectAudio.Play();
-            Destroy(collision.gameObject);
+            Destroy(collider);
             collectedPearl++;
             pearlText.text = collectedPearl + "/" + numberOfPearls;
-        }
-        else if (collider.CompareTag("CP"))
-        {
-            collision.gameObject.GetComponent<Animator>().SetInteger("state", 1);
-            collision.gameObject.tag = "Untagged";
         }
         else if (collider.CompareTag("Strawberry"))
         {
             fruitAudio.Play();
             collectedStrawberry++;
-            Destroy(collision.gameObject);
+            Destroy(collider);
             berryText.text = collectedStrawberry.ToString();
         }
         else if (collider.CompareTag("Cherry"))
         {
             fruitAudio.Play();
             collectedCherry++;
-            Destroy(collision.gameObject);
+            Destroy(collider);
             cherryText.text = collectedCherry.ToString();
         }
         else if (collider.CompareTag("Orange"))
         {
             fruitAudio.Play();
             collectedOrange++;
-            Destroy(collision.gameObject);
+            Destroy(collider);
             orangeText.text = collectedOrange.ToString();
         }
     }
