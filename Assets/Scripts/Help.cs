@@ -9,11 +9,6 @@ public class Help : MonoBehaviour
     void Start()
     {
         var item = new ItemCollector();
-        gameObject.GetComponent<Text>().text = "Collect " + item.GetNumberOfPearls().ToString() + " pearls and I will be able to make a protal for you.";
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
+        gameObject.GetComponent<Text>().text = "Collect " + item.GetNumberOfPearls().ToString() + " pearls, and I will be able to make a protal for you.";
     }
 }

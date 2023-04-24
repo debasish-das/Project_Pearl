@@ -12,7 +12,7 @@ public class PortalCreator : MonoBehaviour
 
     void Start()
     {
-        portal.gameObject.SetActive(true);
+        //portal.gameObject.SetActive(false);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

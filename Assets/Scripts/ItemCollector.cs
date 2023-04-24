@@ -6,9 +6,9 @@ public class ItemCollector : MonoBehaviour
 {
     
     private int collectedPearl = 0;
-    private static int collectedOrange = 0;
-    private static int collectedCherry = 0;
-    private static int collectedStrawberry = 0;
+    public static int collectedOrange = 0;
+    public static int collectedCherry = 0;
+    public static int collectedStrawberry = 0;
 
     [SerializeField]
     private Text pearlText;
@@ -41,21 +41,6 @@ public class ItemCollector : MonoBehaviour
         return collectedPearl;
     }
 
-    public int CollectedOrange()
-    {
-        return collectedOrange;
-    }
-
-    public int CollectedCherry()
-    {
-        return collectedCherry;
-    }
-
-    public int CollectedStrawberry()
-    {
-        return collectedStrawberry;
-    }
-
     public void Start()
     {
         berryText.text = collectedStrawberry.ToString();
@@ -75,24 +60,23 @@ public class ItemCollector : MonoBehaviour
         }
         else if (collider.CompareTag("Strawberry"))
         {
-            fruitAudio.Play();
-            collectedStrawberry++;
-            Destroy(collider);
-            berryText.text = collectedStrawberry.ToString();
+            collectItem(fruitAudio, ref collectedStrawberry, collider, berryText);
         }
         else if (collider.CompareTag("Cherry"))
         {
-            fruitAudio.Play();
-            collectedCherry++;
-            Destroy(collider);
-            cherryText.text = collectedCherry.ToString();
+            collectItem(fruitAudio, ref collectedCherry, collider, cherryText);
         }
         else if (collider.CompareTag("Orange"))
         {
-            fruitAudio.Play();
-            collectedOrange++;
-            Destroy(collider);
-            orangeText.text = collectedOrange.ToString();
+            collectItem(fruitAudio, ref collectedOrange, collider, orangeText);
         }
+    }
+
+    private void collectItem(AudioSource audio, ref int itemCount, GameObject item, Text countText)
+    {
+        audio.Play();
+        itemCount++;
+        Destroy(item);
+        countText.text = itemCount.ToString();
     }
 }
