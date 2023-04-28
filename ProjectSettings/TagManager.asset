@@ -11,6 +11,7 @@ TagManager:
   - Orange
   - Strawberry
   - PortalCreator
+  - Banana
   layers:
   - Default
   - TransparentFX

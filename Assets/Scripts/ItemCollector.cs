@@ -1,6 +1,7 @@
 
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEditor.Progress;
 
 public class ItemCollector : MonoBehaviour
 {
@@ -23,7 +24,7 @@ public class ItemCollector : MonoBehaviour
     private Text berryText;
 
     [SerializeField]
-    private int numberOfPearls = 10;
+    private int numberOfPearls;
 
     [SerializeField]
     private AudioSource collectAudio;
@@ -46,6 +47,7 @@ public class ItemCollector : MonoBehaviour
         berryText.text = collectedStrawberry.ToString();
         cherryText.text = collectedCherry.ToString();
         orangeText.text = collectedOrange.ToString();
+        pearlText.text = collectedPearl + "/" + numberOfPearls;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

@@ -13,6 +13,9 @@ public class PlayerLife : MonoBehaviour
     [SerializeField]
     private Transform checkPoint;
 
+    [SerializeField]
+    private float deathVelocity = -40f;
+
     private void Start()
     {
         animator = GetComponent<Animator>();
@@ -21,7 +24,7 @@ public class PlayerLife : MonoBehaviour
 
     private void Update()
     {
-        if (rigidBody2d.velocity.y < -70)
+        if (rigidBody2d.velocity.y < deathVelocity)
         {
             Die();
         }
