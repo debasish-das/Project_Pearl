@@ -1,4 +1,5 @@
 
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -54,6 +55,12 @@ public class PlayerLife : MonoBehaviour
         animator.SetTrigger("deathTrigger");
         rigidBody2d.bodyType = RigidbodyType2D.Static;
         Invoke("RestartLevel", 1.5f);
+
+        var chaser = GameObject.Find("ShadowChaser");
+        if(chaser != null)
+        {
+            chaser.GetComponent<PlayerFollower>().GoToStart();
+        }
     }
 
     private void RestartLevel()

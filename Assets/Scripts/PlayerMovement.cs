@@ -93,7 +93,7 @@ public class PlayerMovement : MonoBehaviour
             
             if (hasShadow && shadowPrefab != null)
             {
-                if(shadows.Count < 10)
+                if(shadows.Count < 30)
                 {
                     var clone = Instantiate(shadowPrefab, transform.position, transform.rotation);
                     shadows.Add(clone);

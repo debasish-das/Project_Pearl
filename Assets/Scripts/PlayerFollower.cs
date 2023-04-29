@@ -13,6 +13,8 @@ public class PlayerFollower : MonoBehaviour
     private GameObject player;
     private List<GameObject> playerShadows;
 
+    bool newStart = true;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -55,11 +57,20 @@ public class PlayerFollower : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Player"))
         {
-            Invoke("GoToStart", 0.5f);
+            List<GameObject> temp = new List<GameObject>();
+            for (int i = 0; i < playerShadows.Count; i++)
+            {
+                temp.Add(playerShadows[i]);
+            }
+            playerShadows.RemoveAll(x => true);
+            temp.ForEach(x => Destroy(x));
+
+            Debug.Log(playerShadows.Count);
         }
+
     }
 
-    void GoToStart()
+    public void GoToStart()
     {
         transform.position = startPoint.position;
     }
