@@ -1,4 +1,6 @@
 
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -7,6 +9,13 @@ public class PlayerMovement : MonoBehaviour
     private Animator _animator;
     private SpriteRenderer _spriteRenderer;
     private BoxCollider2D _boxCollider;
+
+    [SerializeField] 
+    private GameObject shadowPrefab;
+    [SerializeField]
+    private bool hasShadow = false;
+
+    public List<GameObject> shadows = new List<GameObject>();
 
     [SerializeField]
     private LayerMask _jumpableGround;
@@ -19,7 +28,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private float velocityX = 9f;
 
-    private enum MovementState { idle = 0, running = 1, jumping = 2, falling = 3, death = 4 };
+    private enum MovementState { empty = -1, idle = 0, running = 1, jumping = 2, falling = 3, death = 4 };
+    private MovementState oldMoveState = MovementState.empty;
 
     // Start is called before the first frame update
     private void Start()
@@ -76,11 +86,46 @@ public class PlayerMovement : MonoBehaviour
 
         //Debug.Log(_playerBody.velocity.y);
 
-        _animator.SetInteger("_movementState", (int)state);
+        if (state != oldMoveState)
+        {
+            oldMoveState = state;
+            _animator.SetInteger("_movementState", (int)state);
+            
+            if (hasShadow && shadowPrefab != null)
+            {
+                if(shadows.Count < 10)
+                {
+                    var clone = Instantiate(shadowPrefab, transform.position, transform.rotation);
+                    shadows.Add(clone);
+                    Invoke("DisableClone", 3);
+                }
+                else
+                {
+                    var obj = shadows.ElementAt(0);
+                    if (obj != null)
+                    {
+                        shadows.RemoveAt(0);
+                        Destroy(obj);
+                    }
+                }
+            }
+        }
     }
 
     private bool IsGrounded()
     {
         return Physics2D.BoxCast(_boxCollider.bounds.center, _boxCollider.bounds.size, 0f, Vector2.down, .1f,_jumpableGround);
+    }
+
+    private void DisableClone()
+    {
+        if(shadows.Count != 0)
+        {
+            var obj = shadows.ElementAt(0);
+            if (obj != null)
+            {
+                obj.GetComponent<SpriteRenderer>().enabled = false;
+            }
+        }
     }
 }
