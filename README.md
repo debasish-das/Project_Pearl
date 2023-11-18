@@ -1,5 +1,5 @@
 # Project Pearl
-It is game made with unity to learn and explore game programming. More about the game would be found in documentation folder.
+It is a game made with unity to learn and explore game programming. More about the game would be found in documentation folder.
 
 Compressed video of gameplay:
 
